@@ -3,5 +3,140 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "NgxAdvancePagination": {
+      "projectType": "library",
+      "root": "projects/ngx-advance-pagination",
+      "sourceRoot": "projects/ngx-advance-pagination/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-advance-pagination/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-advance-pagination/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-advance-pagination/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-advance-pagination/src/test.ts",
+            "tsConfig": "projects/ngx-advance-pagination/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-advance-pagination/karma.conf.js"
+          }
+        }
+      }
+    },
+    "paginationApp": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/pagination-app",
+      "sourceRoot": "projects/pagination-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/paginationApp",
+            "index": "projects/pagination-app/src/index.html",
+            "main": "projects/pagination-app/src/main.ts",
+            "polyfills": "projects/pagination-app/src/polyfills.ts",
+            "tsConfig": "projects/pagination-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/pagination-app/src/favicon.ico",
+              "projects/pagination-app/src/assets"
+            ],
+            "styles": [
+              "projects/pagination-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/pagination-app/src/environments/environment.ts",
+                  "with": "projects/pagination-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "paginationApp:build:production"
+            },
+            "development": {
+              "browserTarget": "paginationApp:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "paginationApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/pagination-app/src/test.ts",
+            "polyfills": "projects/pagination-app/src/polyfills.ts",
+            "tsConfig": "projects/pagination-app/tsconfig.spec.json",
+            "karmaConfig": "projects/pagination-app/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/pagination-app/src/favicon.ico",
+              "projects/pagination-app/src/assets"
+            ],
+            "styles": [
+              "projects/pagination-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "NgxAdvancePagination"
 }

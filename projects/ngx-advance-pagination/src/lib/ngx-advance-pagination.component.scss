@@ -1,0 +1,45 @@
+.ngx-advance-pagination-container {
+  .ngx-advance-pagination {
+    margin: 0;
+    padding: 0;
+
+    .ngx-advance-pagination-page-item {
+      list-style: none;
+      float: left;
+      border: 1px solid rgba(0,0,0,0.7);
+      border-right: none;
+      line-height: 28px;
+
+      &:first-child {
+        border-radius: 2px 0 0 2px;
+      }
+
+      &:last-child {
+        border-right: 1px solid rgba(0,0,0,0.7);
+        border-radius: 0 2px 2px 0;
+      }
+
+      &.ngx-advance-pagination-left-control, &.ngx-advance-pagination-right-control {
+        font-size: 20px;
+        line-height: 25px;
+      }
+
+      .ngx-advance-pagination-page-link {
+        text-decoration: none;
+        display: block;
+        background: #ffffff;
+        color: #333333;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 28px;
+      }
+
+      &.active, &:hover:not(.ngx-advance-pagination-left-control):not(.ngx-advance-pagination-right-control) {
+        .ngx-advance-pagination-page-link {
+          background: #0b69c0;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

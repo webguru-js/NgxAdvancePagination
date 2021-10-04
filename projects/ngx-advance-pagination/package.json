@@ -1,0 +1,20 @@
+{
+  "name": "ngx-advance-pagination",
+  "version": "0.0.2",
+  "peerDependencies": {
+    "@angular/common": "^12.1.0",
+    "@angular/core": "^12.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.2.0"
+  },
+  "keywords": [
+    "Angular",
+    "Angular2+",
+    "Angular12",
+    "Pager",
+    "Pagination",
+    "Dots",
+    "Advance"
+  ]
+}

@@ -1,0 +1,13 @@
+<div class="ngx-advance-pagination-container" *ngIf="numOfPaginations > 0">
+  <ul class="ngx-advance-pagination">
+    <li class="ngx-advance-pagination-page-item ngx-advance-pagination-left-control">
+      <a href="javascript:void(0);" (click)="prevClicked()" class="ngx-advance-pagination-page-link">&#8249;</a>
+    </li>
+    <li *ngFor="let data of paginationArr" [class]="data == _currentPageNumber ? 'active ngx-advance-pagination-page-item' : 'ngx-advance-pagination-page-item'">
+      <a href="javascript:void(0);" (click)="paginationClicked($event, data)" class="ngx-advance-pagination-page-link" >{{data}}</a>
+    </li>
+    <li class="ngx-advance-pagination-page-item ngx-advance-pagination-right-control">
+      <a href="javascript:void(0);" (click)="nextClicked()" class="ngx-advance-pagination-page-link" >&#8250;</a>
+    </li>
+  </ul>
+</div>

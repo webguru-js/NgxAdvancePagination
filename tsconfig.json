@@ -11,6 +11,12 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "paths": {
+      "ngx-advance-pagination": [
+        "dist/ngx-advance-pagination/ngx-advance-pagination",
+        "dist/ngx-advance-pagination"
+      ]
+    },
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
